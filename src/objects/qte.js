@@ -46,9 +46,9 @@ export default class QTESystem {
 		this.curTimeBox.beginFill(0xFFFFFF);
 		this.curTimeBox.drawRect(0,0,TIME_BOX_WIDTH,30);
 
-		let timeBox = this.game.add.graphics(this.game.stage.width/2-TIME_BOX_WIDTH/2,this.game.stage.height/2+50);
-		timeBox.lineStyle(6, 0x000000, 1);
-    timeBox.drawRect(-3, -3, TIME_BOX_WIDTH+6, 36);
+		this.timeBox = this.game.add.graphics(this.game.stage.width/2-TIME_BOX_WIDTH/2,this.game.stage.height/2+50);
+		this.timeBox.lineStyle(6, 0x000000, 1);
+   		this.timeBox.drawRect(-3, -3, TIME_BOX_WIDTH+6, 36);
 	}
 
 	createRandomCombo (num) {
@@ -143,6 +143,9 @@ export default class QTESystem {
 		}
 
 
+		//if ( this.curBtnInCombo == this.buttonsNum-1 )
+			//this.sig = this.parent.qteComplete();
+
 		if ( !cursors.left.isDown ) 
 			this.curCursors.left = false;
 		if ( !cursors.right.isDown ) 
@@ -175,4 +178,16 @@ export default class QTESystem {
 		return ((9-Math.round(difficulty/2))*1000+1);
 	}
 
+	kill() {
+		//this.comboImages.kill();
+		for ( var i = 0; i<7;i++)  // NEEDS TO BE FIXED. IT'S NOT ALWAYS 7
+			this.comboImages.getChildAt(i).kill();
+		this.curTimeBox.kill();
+		this.timeBox.kill();
+	}
+
+
+
 }
+
+
