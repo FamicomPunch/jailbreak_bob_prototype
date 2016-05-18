@@ -11,13 +11,23 @@ export default class Player extends Phaser.Sprite //(game, x, y, @rotateSpeed) -
 		this.player.body.collideWorldBounds = true;
 		this.player.animations.add('left', [15, 16, 17, 18], 10, true);
 		this.player.animations.add('right', [5, 6, 7, 8], 10, true);
+		
+		/*
+		this.game.physics.arcade.enable(this);
+		this.body.bounce.y = 0.2;
+		this.body.gravity.y = 700;
+		this.body.collideWorldBounds = true;
+		this.animations.add('left', [15, 16, 17, 18], 10, true);
+		this.animations.add('right', [5, 6, 7, 8], 10, true);
+		*/
 
 		this.cursors = game.input.keyboard.createCursorKeys();
 		this.face = 'r';
 	}
 	
-	update () {
+	update () { 
 		//console.log(this.texture);
+		
 		this.player.body.velocity.x = 0;
 
 		if ( this.cursors.left.isDown) {
@@ -36,6 +46,28 @@ export default class Player extends Phaser.Sprite //(game, x, y, @rotateSpeed) -
 			if ( this.player.face == 'l' )
 				this.player.frame = 14;
 		}
+		
+		/*
+
+		this.body.velocity.x = 0;
+
+		if ( this.cursors.left.isDown) {
+			this.body.velocity.x = -300;
+			this.animations.play('left');
+			this.face = 'l';
+		}
+		else if ( this.cursors.right.isDown ) {
+			this.body.velocity.x = 300;
+			this.animations.play('right');
+			this.face = 'r';
+		}
+		else {
+			this.animations.stop();
+			this.frame = 0;
+			if ( this.face == 'l' )
+				this.frame = 14;
+		}
+		*/
 
 		//if ( this.cursors.up.isDown && this.player.body.touching.down )
 			//this.player.body.velocity.y = -500;
@@ -44,6 +76,8 @@ export default class Player extends Phaser.Sprite //(game, x, y, @rotateSpeed) -
 	pause() {
 		this.player.animations.stop();
 		this.player.body.velocity.x = 0;
+		//this.animations.stop();
+		//this.body.velocity.x = 0;
 	}
 
 }
