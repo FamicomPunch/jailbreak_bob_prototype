@@ -4,6 +4,6 @@
 3. Git 101: http://rogerdudler.github.io/git-guide/
 
 Install:  
-`git clone https://github.com/hbcAntonio/game1005_prototype.git`
+`git clone https://github.com/hbcAntonio/jailbreak_bob_prototype.git`
 `npm install`
 `npm start`  
