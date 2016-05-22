@@ -4,10 +4,10 @@ import Menu from 'states/menu';
 import Play from 'states/play';
 
 const defaultConfigs = {
-	gameWidth: 800,
-	gameHeight: 600,
+	gameWidth: 1280,
+	gameHeight: 1024,
 	parent: 'content',
-	renderer: Phaser.AUTO
+	renderer: Phaser.CANVAS
 }
 
 // phuong melody - green pastures
@@ -17,6 +17,9 @@ class Game extends Phaser.Game {
 	constructor() {
 		const { width, height, parent, renderer } = defaultConfigs;
 
+		console.log('calling super with args: ');
+		console.log(defaultConfigs);
+		
 		super
 		(
 			width, 						// Game width

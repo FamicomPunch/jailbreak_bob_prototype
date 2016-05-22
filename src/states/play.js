@@ -15,9 +15,7 @@ export default class Play extends Phaser.State {
         this.load.image('sky', '/assets/sky.png');
         this.load.spritesheet('dude', '/assets/dude.png', 32, 48);
         this.load.image('arrow', 'assets/white_arrow.png');
-		this.load.spritesheet('cowboy', 'assets/cowboy.png',128,128);
-		
-		
+        this.load.spritesheet('cowboy', 'assets/cowboy.png',128,128);
 
         this.qteSystem = new QTESystem(this);
         this.inQTE = false;
@@ -28,9 +26,7 @@ export default class Play extends Phaser.State {
 		
 
         this.add.sprite(0, 0, 'sky');
-		this.player = new Player(this,0,0,'cowboy');
-        //this.add.existing(this.player);
-		
+		this.player = new Player(this.game, 0, 0, 'cowboy');
        
         this.qteBaddieColl = this.add.group();
         this.qteBaddieColl.enableBody = true;
@@ -60,18 +56,18 @@ export default class Play extends Phaser.State {
     update () {
         if (this.inQTE){
             this.qteSystem.buttonCheck();
-            this.game.physics.arcade.collide(this.player.player, this.platforms);
+            this.game.physics.arcade.collide(this.player, this.platforms);
             if ( this.qteSystem.curBtnInCombo == this.qteSystem.buttonsNum )
                 this.qteComplete();
         }
 		else {
 			this.player.update();
             
-			this.game.physics.arcade.collide(this.player.player, this.platforms);
+			this.game.physics.arcade.collide(this.player, this.platforms);
             this.game.physics.arcade.collide(this.stars, this.platforms);
-            this.game.physics.arcade.overlap(this.player.player, this.qteBaddieColl, this.startQTE, null, this);
-            if ( this.cursors.up.isDown && this.player.player.body.touching.down )
-                this.player.player.body.velocity.y = -500;
+            this.game.physics.arcade.overlap(this.player, this.qteBaddieColl, this.startQTE, null, this);
+            if ( this.cursors.up.isDown && this.player.body.touching.down )
+                this.player.body.velocity.y = -500;
             /*
             this.game.physics.arcade.collide(this.player, this.platforms);
             this.game.physics.arcade.collide(this.stars, this.platforms);
@@ -92,6 +88,8 @@ export default class Play extends Phaser.State {
     }
 
     qteComplete () {
+        setTimeout(() => this.player.unpause(), 100);
+        
         this.qteSystem.kill();
         this.qteBaddieColl.getChildAt(0).kill();// NEEDS TO BE FIXED
         this.inQTE = false;

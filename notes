@@ -1,18 +1,54 @@
-Project Review:
-- Comparisons: Compare the project plan with the current status of the project.
+Project Review
+--------------
+- Comparisons:
 
-- Accomplishments: List any accomplishments since the last review.
-QTEs mechanic implemented
-Player movement and world collision implemented
-Player spritesheet implemented
+Our plan is to get familiar with the code as the project develops, implementing our main mechanics and making sure they are refined enough to be integrated in our levels. For Week 4, we want to have our must-have features functional and a few levels to playtest, polishing the game.
+
+Currently, we have our first playable with the core-mechanics QTE and player movement. We are working on getting the Menu->Levels->Win/Lose flow working and developing our first levels.
+
+- Accomplishments:
+
+ 1. QTEs mechanic implemented
+ 2. Player movement and world collision implemented
+ 3. Player spritesheet implemented
 
 - Risks: Identify any potential risks and propose solutions.
-- Roadblocks: Roadblocks are anything that prevents the team from making progress.
-- Supporting documentation: This includes the updated project schedule, deliverable lists, status reports
-for each area of the game, and anything else that concretely illustrates the progress made on the game.
-- Resources: Identify any additional resources needed.
 
-Critical Stage Analysis:
+As the team is still very much learning how to program and deal with version control, we might have future roadblocks that derive from this very risk. Currently, we are trying to absorb as much as possible while applying it to our project.
+
+- Roadblocks:
+
+No major roadblocks happened for the first playable milestone. We were able to concile learning with implementation.
+
+- Supporting documentation:
+
+Our github project has been regularly updated, every member effectively contributing to the project. The focus for the first playable was programming the core mechanics, so no real progress was made regarding art/sound assets.
+
+- Resources:
+
+Expanding our team's knowledge through PhaserJS tutorials.
+
+
+Critical Stage Analysis
+-----------------------
+
 - What are five things that went right during this past development period?
+
+	* The whole team participated in meetings
+	* Everybody was able to learn
+	* People actively contributed to the code development
+	* Team felt well synchronized
+	* We reached our goal for Week 2
+
 - What are five things that went wrong during this past development period?
+
+	* Errors regarding versioning control due to the fact that people are still learning how to deal with GitHub
+	* Dividing tasks still felt inefficient, given that members are still figuring out what they feel comfortable doing when it comes to coding the game
+
 - What are five things that can be improved for future development periods?
+
+	* Getting up to speed with setting the project up and running the game took quite a while and some team members still struggle with the concept
+	* We can definitely improve our coding abilities through online tutorials
+	* We can definitely improve our source-control knowledge through online tutorials as well
+	* Better assessing everybody's skills and
+	* Better task distribution
