@@ -1,4 +1,5 @@
 import QuickTimeEvent from '../objects/qte';
+import Menu from '../states/menu';
 export default class Player extends Phaser.Sprite {
 	/* Our 'class' constructor, receives the instance
 	of game, a position and a start frame, then it calls
@@ -63,13 +64,18 @@ export default class Player extends Phaser.Sprite {
 
 	startQTE () {
 		if (this.enemyQTEplaying) return;
-		this.qte = new QuickTimeEvent(this.game, 5, 5000, () => this.handleQTEWin(), () => {console.log('loss')});
+		this.qte = new QuickTimeEvent(this.game, 5, 5000, () => this.handleQTEWin(), () => this.handleQTELose());
 		this.enemyQTEplaying = true;
 	}
 
-	handleQTEWin() {
+	handleQTEWin() { //if the player wins the QTE
 		this.destroy();
 		this.group.remove(this);
 	}
+	
+	handleQTELose() { //if the player loses the QTE
+	console.log('GAME OVER');
+	}
 
 }
+0
