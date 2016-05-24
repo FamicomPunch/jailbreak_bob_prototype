@@ -32,6 +32,8 @@ export default class Load extends Phaser.State {
     this.load.spritesheet('redboy', '/assets/sprites/redboy.png', 128, 128);
     this.load.spritesheet('cowboy', 'assets/sprites/cowboy.png', 128, 128);
 
+	this.load.audio('tumbleweed', ['assets/audio/tumbleweedtown.wav']);
+	
     this.load.tilemap('intro', 'assets/tilemaps/intro.json', null, Phaser.Tilemap.TILED_JSON);
 	}
 
