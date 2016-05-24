@@ -4,8 +4,8 @@ import Menu from 'states/menu';
 import Play from 'states/play';
 
 const defaultConfigs = {
-	gameWidth: 1280,
-	gameHeight: 1024,
+	width: 800,
+	height: 600,
 	parent: 'content',
 	renderer: Phaser.CANVAS
 }

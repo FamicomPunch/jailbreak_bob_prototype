@@ -10,15 +10,16 @@ export default class Player extends Phaser.Sprite {
 		// Add sprite instance to game and
 		// enable physics for the player
 		game.add.existing(this);
-		game.physics.arcade.enable(this);
+    game.physics.arcade.enable(this);
 
 		// Keyboard input
 		this.cursors = game.cursors;
 
 		// Physics 'body' configuration
-		this.body.bounce.y = 0.1;
-		this.body.gravity.y = 1080;
-		this.body.collideWorldBounds = true;
+		this.body.bounce.y = 0.2;
+    this.body.gravity.y = 300;
+    this.body.collideWorldBounds = true;
+		this.collision = [];
 
 		// Finally, add animations to our player object
 		this.animations.add('left', [15, 16, 17, 18], 10, true);
@@ -37,11 +38,18 @@ export default class Player extends Phaser.Sprite {
 		this.animate = true;
 		this.isMoving = false;
 	}
+
+	addCollision(gameObject) {
+    this.collision.push(gameObject);
+  }
 	
 	/* Update method is called every frame, and
 	its logic is executed in order to alter
 	the object state */
 	update () { 
+		// Collide with objects
+		this.collision.forEach((gameObject) => this.game.physics.arcade.collide(this, gameObject));
+
 		// Call method to take care of player movement separately
 		this.handlePlayerMovement();
 
@@ -73,16 +81,17 @@ export default class Player extends Phaser.Sprite {
 		// this.face are the only attributes being
 		// referenced directly because they are the
 		// only attributes being modified (thus not constant)
-		if (this.cursors.left.isDown) {
+		if (cursors.left.isDown) {
 			body.velocity.x = -walkSpeed;
 			this.face = 'left';
 		} 
-		else if (this.cursors.right.isDown) {
+		else if (cursors.right.isDown) {
 			body.velocity.x = walkSpeed;
 			this.face = 'right';
 		} 
 
-		if ( cursors.up.isDown && body.onFloor() ) {
+		if ( cursors.up.isDown && this.body.onFloor() ) {
+			console.log('jumped');
 			this.body.velocity.y = -jumpSpeed;
 		}
 
