@@ -44,7 +44,7 @@ export default class Play extends Phaser.State {
         this.players.add(this.game.player);
 
         this.enemies = this.game.add.group();
-        this.enemy = new Enemy(this.game, 600, 515, 'dude', 0, this.enemies, this.player);
+        this.enemy = new Enemy(this.game, 600, 515, 'redboy', 0, this.enemies, this.player);
         this.enemy.addCollision(this.groundLayer);
 
         this.game.camera.follow(this.game.player);
