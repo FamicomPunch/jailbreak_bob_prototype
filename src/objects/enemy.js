@@ -1,6 +1,6 @@
 import QuickTimeEvent from '../objects/qte';
 import Menu from '../states/menu';
-export default class Player extends Phaser.Sprite {
+export default class Enemy extends Phaser.Sprite {
 	/* Our 'class' constructor, receives the instance
 	of game, a position and a start frame, then it calls
 	the constructor of the superclass and pass on those
