@@ -1,5 +1,5 @@
 export default class Load extends Phaser.State {
-//test
+
 	preload () {
 		this.props = {
 			game: this.game,
@@ -28,7 +28,7 @@ export default class Load extends Phaser.State {
     this.load.image('arrow', 'assets/sprites/white_arrow.png');
     this.load.image('ground', 'assets/spritesheets/ground.png');
     this.load.image('background', 'assets/sprites/blue-land.png');
-
+	this.load.image('plank', 'assets/sprites/plank.png');//image for the Bounty System
     this.load.spritesheet('redboy', '/assets/sprites/redboy.png', 128, 128);
     this.load.spritesheet('cowboy', 'assets/sprites/cowboy.png', 128, 128);
 

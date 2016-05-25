@@ -1,6 +1,7 @@
 import * as util from 'util/shortcut';
 import Player from '../objects/player';
 import Enemy from '../objects/enemy';
+import Bounty from '../objects/bounty';
 //import QuickTimeEvent from '../objects/qte';
 
 export default class Play extends Phaser.State {
@@ -47,7 +48,9 @@ export default class Play extends Phaser.State {
         this.enemy = new Enemy(this.game, 600, 515, 'redboy', 0, this.enemies, this.player);
         this.enemy.addCollision(this.groundLayer);
 
-        this.game.camera.follow(this.game.player);
+        this.game.camera.follow(this.game.player);//camera follows player
+		
+	
     }
 
     update () {
