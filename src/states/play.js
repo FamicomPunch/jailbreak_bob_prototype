@@ -17,7 +17,7 @@ export default class Play extends Phaser.State {
         // start physics system
         this.physics.startSystem(Phaser.Physics.ARCADE);
         this.physics.arcade.gravity.y = 1000;
-
+		
         // add tilemap
         const map = this.add.tilemap('intro');
         map.addTilesetImage('spritesheet-ground', 'ground');
@@ -38,7 +38,9 @@ export default class Play extends Phaser.State {
           });
         });
         map.setCollision(collisionTiles, true, 'ground');
-
+		
+		
+		
         this.game.player = new Player(this.game, 0, 515, 'cowboy', 0);
         this.game.player.addCollision(this.groundLayer);
         this.players = this.game.add.group();
@@ -50,7 +52,8 @@ export default class Play extends Phaser.State {
 
         this.game.camera.follow(this.game.player);//camera follows player
 		
-	
+		
+		this.bountyText = new Bounty(this.game);
     }
 
     update () {
@@ -63,6 +66,7 @@ export default class Play extends Phaser.State {
             null, 
             this
         );
+		
     }
 }
 
