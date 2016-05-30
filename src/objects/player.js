@@ -12,6 +12,8 @@ export default class Player extends Phaser.Sprite {
 		game.add.existing(this);
     game.physics.arcade.enable(this);
 
+    console.log(game.whatever);
+
 		// Keyboard input
 		this.cursors = game.cursors;
 

@@ -7,16 +7,10 @@ preload (){
 	
  	create () {
 	var music;	
-	music = this.game.add.audio('tumbleweed');
-	music.play();
+	//music = this.game.add.audio('tumbleweed');
+	//music.play();
 		
-		this.add.button(100, 100, 'title', this.startGame, this);
+		this.add.button(100, 100, 'title', () => this.state.start('Play'), this);
 		
  	}
- 
-	startGame (){
-		
-		this.state.start('Play'); 
-	}
-	
- }
+}
