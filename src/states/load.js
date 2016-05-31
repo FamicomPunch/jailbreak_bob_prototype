@@ -17,7 +17,7 @@ export default class Load extends Phaser.State {
     	
         // Load tilemaps 
         this.load.tilemap('intro', 'assets/tilemaps/intro.json', null, Phaser.Tilemap.TILED_JSON);
-
+		this.load.tilemap('level2', 'assets/tilemap/level2.json', null, Phaster.Tilemap.TILED_JSON);
 	}
 
     create () {
