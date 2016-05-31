@@ -77,7 +77,7 @@ export default class QuickTimeEvent {
 
 	stopQTE (state) {
 
-		setTimeout(() => this.game.player.unpause(), 1000);
+		setTimeout(() => this.game.player.unpause(), 359);
 
 		this.sequence.forEach((button) => {
 			button.sprite.tint = (state === 'win' ? 0x00FF00 : 0xFF0000);

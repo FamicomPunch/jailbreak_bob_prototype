@@ -6,7 +6,7 @@ export default class Enemy extends Phaser.Sprite {
 	the constructor of the superclass and pass on those
 	parameters in order to be initialized properly
 	*/
-	constructor (game, x, y, key, frame, group, player) {
+	constructor (game, x, y, key, frame, group, player, properties) {
 		super(game, x, y, key, frame);
 
 		// Add sprite instance to game and
@@ -26,6 +26,9 @@ export default class Enemy extends Phaser.Sprite {
     this.body.immovable = true;
     this.body.collideWorldBounds = true;
 		this.collision = [];
+
+		// Properties
+		this.properties = properties;
 		
 		// Direction facing
 		this.face = 'right';
@@ -64,7 +67,7 @@ export default class Enemy extends Phaser.Sprite {
 
 	startQTE () {
 		if (this.enemyQTEplaying) return;
-		this.qte = new QuickTimeEvent(this.game, 5, 5000, () => this.handleQTEWin(), () => this.handleQTELose());
+		this.qte = new QuickTimeEvent(this.game, this.properties.qteSize, this.properties.qteTime, () => this.handleQTEWin(), () => this.handleQTELose());
 		this.enemyQTEplaying = true;
 	}
 
@@ -74,8 +77,7 @@ export default class Enemy extends Phaser.Sprite {
 	}
 	
 	handleQTELose() { //if the player loses the QTE
-	console.log('GAME OVER');
+		console.log('GAME OVER');
 	}
 
 }
-0

@@ -12,8 +12,6 @@ export default class Player extends Phaser.Sprite {
 		game.add.existing(this);
     game.physics.arcade.enable(this);
 
-    console.log(game.whatever);
-
 		// Keyboard input
 		this.cursors = game.cursors;
 
@@ -24,14 +22,14 @@ export default class Player extends Phaser.Sprite {
 		this.collision = [];
 
 		// Finally, add animations to our player object
-		this.animations.add('left', [15, 16, 17, 18], 10, true);
-		this.animations.add('right', [5, 6, 7, 8], 10, true);
+		this.animations.add('left', [15, 16, 17, 18], 9, true);
+		this.animations.add('right', [5, 6, 7, 8], 9, true);
 		
 		// Direction facing
 		this.face = 'right';
 
 		// Speed (px/s)
-		this.walkSpeed = 300;
+		this.walkSpeed = 700;
 		this.jumpSpeed = 500;
 
 		// VERY IMPORTANT: Player states
@@ -39,6 +37,8 @@ export default class Player extends Phaser.Sprite {
 		this.movementEnabled = true;
 		this.animate = true;
 		this.isMoving = false;
+
+		console.log(this);
 	}
 
 	addCollision(gameObject) {
